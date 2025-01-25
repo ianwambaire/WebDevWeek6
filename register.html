@@ -3,47 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form</title>
+    <title>Register</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="form-container">
         <h1>Register</h1>
-        <form id="registrationForm" novalidate>
+        <form id="registrationForm" onsubmit="return validateForm(event)">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-                <small class="error-message" id="nameError">Name must be at least 3 characters long.</small>
+                <input type="text" id="name" name="name">
+                <div class="error-message" id="nameError">Name must be at least 3 characters long.</div>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-                <small class="error-message" id="emailError">Please enter a valid email address.</small>
+                <input type="email" id="email" name="email">
+                <div class="error-message" id="emailError">Please enter a valid email address.</div>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-                <small class="error-message" id="passwordError">Password must be at least 8 characters, include one uppercase letter, and one number.</small>
+                <input type="password" id="password" name="password">
+                <div class="error-message" id="passwordError">Password must be at least 8 characters, include one uppercase letter, and one number.</div>
             </div>
             <div class="form-group">
-                <label for="options">Select an Option</label>
-                <select id="options" name="options" onchange="displayMessage(this.value)">
-                    <option value="" disabled selected>Choose an option</option>
-                    <option value="Option 1">Option 1</option>
-                    <option value="Option 2">Option 2</option>
-                    <option value="Option 3">Option 3</option>
+                <label for="dropdown">Select an Option</label>
+                <select id="dropdown" name="dropdown" onchange="handleDropdownChange()">
+                    <option value="">Choose an option</option>
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
                 </select>
-                <small id="dropdownMessage" class="info-message"></small>
+                <div class="info-message" id="dropdownMessage"></div>
             </div>
             <button type="submit">Register</button>
         </form>
     </div>
 
     <script>
-        document.getElementById('registrationForm').addEventListener('submit', function (e) {
+        function validateForm(event) {
+            event.preventDefault(); // Prevent form submission
+            
             let isValid = true;
 
-            // Name validation
+            // Validate Name
             const name = document.getElementById('name').value;
             const nameError = document.getElementById('nameError');
             if (name.length < 3) {
@@ -53,36 +55,43 @@
                 nameError.style.display = 'none';
             }
 
-            // Email validation
+            // Validate Email
             const email = document.getElementById('email').value;
             const emailError = document.getElementById('emailError');
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(email)) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
                 emailError.style.display = 'block';
                 isValid = false;
             } else {
                 emailError.style.display = 'none';
             }
 
-            // Password validation
+            // Validate Password
             const password = document.getElementById('password').value;
             const passwordError = document.getElementById('passwordError');
-            const passwordPattern = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
-            if (!passwordPattern.test(password)) {
+            const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+            if (!passwordRegex.test(password)) {
                 passwordError.style.display = 'block';
                 isValid = false;
             } else {
                 passwordError.style.display = 'none';
             }
 
-            if (!isValid) {
-                e.preventDefault();
+            // If form is valid, submit it
+            if (isValid) {
+                alert('Form submitted successfully!');
+                document.getElementById('registrationForm').reset(); // Reset the form
             }
-        });
+        }
 
-        function displayMessage(option) {
-            const messageElement = document.getElementById('dropdownMessage');
-            messageElement.textContent = `You selected: ${option}`;
+        function handleDropdownChange() {
+            const dropdown = document.getElementById('dropdown');
+            const dropdownMessage = document.getElementById('dropdownMessage');
+            if (dropdown.value) {
+                dropdownMessage.textContent = `You selected: ${dropdown.value}`;
+            } else {
+                dropdownMessage.textContent = '';
+            }
         }
     </script>
 </body>
