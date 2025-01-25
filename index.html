@@ -26,7 +26,7 @@
         </header>
         <section id="info">
             <h1>Collection of Recipes from<br>all over the world</h1>
-            <h3>Helping you figure out the right way<br>to make a tasty snack or meal</h3>
+            <p id="subheadline">Helping you figure out the right way<br>to make a tasty snack or meal</p>
             <!--This button changes the background colour of the webpage when clicked-->
             <button onclick="changebackgroundcolour()">Change background</button>
             <script src="script.js"></script>
@@ -39,6 +39,30 @@
             </div>
             <br>
         </main>
+        <div class="slider-container">
+            <input 
+                type="range" 
+                min="0" 
+                max="100" 
+                value="50" 
+                class="slider" 
+                id="slider" 
+                oninput="updateSliderValue(this.value)"
+            >
+            <div class="slider-value" id="sliderValue">Value: 50</div>
+        </div>
+        <div class="slider-container">
+            <input 
+                type="range" 
+                min="12" 
+                max="48" 
+                value="16" 
+                class="slider" 
+                id="textSizeSlider" 
+                oninput="adjustTextSize(this.value)"
+            >
+            <div class="slider-value" id="textSizeValue">Text Size: 16px</div>
+        </div>
     </div>    
 </body>
 </html>

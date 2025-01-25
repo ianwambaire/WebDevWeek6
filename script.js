@@ -5,3 +5,12 @@ function changebackgroundcolour(){
             isBlue = !isBlue;
 
 }
+//Added a slider that adjusts the size of a paragraph text dynamically.
+function updateSliderValue(value) {
+    document.getElementById('sliderValue').textContent = `Value: ${value}`;
+}
+function adjustTextSize(value) {
+    const textElement = document.getElementById('subheadline');
+    textElement.style.fontSize = `${value}px`;
+    document.getElementById('textSizeValue').textContent = `Text Size: ${value}px`;
+}
