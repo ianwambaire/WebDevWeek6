@@ -14,14 +14,3 @@ function adjustTextSize(value) {
     textElement.style.fontSize = `${value}px`;
     document.getElementById('textSizeValue').textContent = `Text Size: ${value}px`;
 }
-//Create a modal that displays when a button is clicked and hides when the user clicks a close button.
-const modal = document.getElementById("modal");
-  const openModal = document.getElementById("openModal");
-  const closeModal = document.getElementById("closeModal");
-
-  openModal.onclick = function () {
-    modal.style.display = "block";
-  };
-  closeModal.onclick = function () {
-    modal.style.display = "none";
-  };
