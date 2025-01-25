@@ -16,7 +16,6 @@
             <nav>
                 <ul>
                     <li><a href="register.html">REGISTER</a></li>
-                    <li><a href="loginform.html">LOGIN</a></li>
                     <li><a href="#contact">CONTACT</a></li>
                     <li><a href="#reviews">REVIEWS</a></li>
                     <li><a href="#aboutus">ABOUT</a></li>
@@ -40,22 +39,22 @@
             <br>
             <button id="openModal">Open Modal</button>
             <!--Create a modal that displays when a button is clicked and hides when the user clicks a close button.-->
-<div id="modal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); padding:20px; background:white; box-shadow:0 0 10px rgba(0,0,0,0.5);">
-  <p>My modal</p>
-  <button id="closeModal">Close</button>
-</div>
-<script>
-  const modal = document.getElementById("modal");
-  const openModal = document.getElementById("openModal");
-  const closeModal = document.getElementById("closeModal");
+        <div id="modal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); padding:20px; background:white; box-shadow:0 0 10px rgba(0,0,0,0.5);">
+        <p>My modal</p>
+        <button id="closeModal">Close</button>
+        </div>
+        <script>
+        const modal = document.getElementById("modal");
+        const openModal = document.getElementById("openModal");
+        const closeModal = document.getElementById("closeModal");
 
-  openModal.onclick = function () {
-    modal.style.display = "block";
-  };
-  closeModal.onclick = function () {
-    modal.style.display = "none";
-  };
-</script>
+        openModal.onclick = function () {
+            modal.style.display = "block";
+        };
+        closeModal.onclick = function () {
+            modal.style.display = "none";
+        };
+        </script>
         </main>
         <div class="slider-container">
             <input 
