@@ -40,20 +40,20 @@ div.gallery img {
     height: 100%;
     width: 100%;
 }
-nav {
+#info{
     float: left;
     width: 70%;
     margin-bottom: 4cm;
 }
-nav h1 {
+#info h1 {
     margin-left: 4cm;
     font-size: 60px;
 }
-nav h3 {
+#info h3 {
     margin-left: 4cm;
     font-size: 30px;
 }
-nav button {
+#info button {
     background-color: #75474a;
     color: white;
     padding-bottom: 10px;
